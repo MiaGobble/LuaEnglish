@@ -1,5 +1,5 @@
 local ntype
-ntype = require("moonscript.types").ntype
+ntype = require(script.Parent.Parent.types).ntype
 local Transformer
 do
   local _class_0

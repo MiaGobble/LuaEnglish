@@ -1,6 +1,6 @@
 local lfs = require("lfs")
 local split
-split = require("moonscript.util").split
+split = require(script.Parent.Parent.util).split
 local dirsep, dirsep_chars, mkdir, normalize_dir, parse_dir, parse_file, convert_path, format_time, gettime, compile_file_text, write_file, compile_and_write, is_abs_path, path_to_target
 dirsep = package.config:sub(1, 1)
 if dirsep == "\\" then

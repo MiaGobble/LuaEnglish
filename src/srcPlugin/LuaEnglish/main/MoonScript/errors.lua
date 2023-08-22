@@ -1,5 +1,5 @@
-local util = require("moonscript.util")
-local lpeg = require("lpeg")
+local util = require(script.Parent.util)
+local lpeg-- = require(script.Parent."lpeg")
 local concat, insert
 do
   local _obj_0 = table
@@ -64,7 +64,7 @@ truncate_traceback = function(traceback, chunk_func)
 end
 local rewrite_traceback
 rewrite_traceback = function(text, err)
-  local line_tables = require("moonscript.line_tables")
+  local line_tables = require(script.Parent.line_tables)
   local V, S, Ct, C
   V, S, Ct, C = lpeg.V, lpeg.S, lpeg.Ct, lpeg.C
   local header_text = "stack traceback:"

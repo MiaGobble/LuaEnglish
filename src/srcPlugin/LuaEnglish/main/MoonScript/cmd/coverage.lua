@@ -86,7 +86,7 @@ do
       self.line_counts[_update_0][_update_1] = self.line_counts[_update_0][_update_1] + 1
     end,
     format_results = function(self)
-      local line_table = require("moonscript.line_tables")
+      local line_table = require(script.Parent.Parent.line_tables)
       local positions = create_counter()
       for file, lines in pairs(self.line_counts) do
         local _continue_0 = false

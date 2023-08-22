@@ -1,14 +1,14 @@
 local unpack
-unpack = require("moonscript.util").unpack
+unpack = require(script.Parent.Parent.util).unpack
 local P, C, S, Cp, Cmt, V
 do
   local _obj_0 = require("lpeg")
   P, C, S, Cp, Cmt, V = _obj_0.P, _obj_0.C, _obj_0.S, _obj_0.Cp, _obj_0.Cmt, _obj_0.V
 end
 local ntype
-ntype = require("moonscript.types").ntype
+ntype = require(script.Parent.Parent.types).ntype
 local Space
-Space = require("moonscript.parse.literals").Space
+Space = require(script.Parent.literals).Space
 local Indent = C(S("\t ") ^ 0) / function(str)
   do
     local sum = 0

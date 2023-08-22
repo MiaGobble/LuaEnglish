@@ -1,7 +1,7 @@
 local build
-build = require("moonscript.types").build
+build = require(script.Parent.Parent.types).build
 local unpack
-unpack = require("moonscript.util").unpack
+unpack = require(script.Parent.Parent.util).unpack
 local LocalName
 do
   local _class_0
