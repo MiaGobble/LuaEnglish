@@ -11,9 +11,22 @@ function splitter:separateStringIntoLines(string : string)
     return lines
 end
 
+--[[
+    {
+        lua = `rawset(!PARAM1, !PARAM2, !PARAM3)`,
+        english = `raw set !PARAM2 in !PARAM1 to !PARAM3`,
+    },
+
+    englishToken = `raw set !PARAM2 in !PARAM1 to !PARAM3`
+    inputToken = `raw set !PARAM2 in !PARAM1 to !PARAM3`
+]]
+
 function splitter:findParametersInToken(englishToken : string, inputToken : string)
     -- Finds the parameters in a token where "!PARAM#" normally is
     -- And extract them from the inputToken
+
+    englishToken = "raw set !PARAM2 in !PARAM1 to !PARAM3"
+    inputToken = "raw set test 2 in test 1 test to footest3"
 
     -- Get the parameters from the english token
     local parameters = {}
@@ -25,27 +38,26 @@ function splitter:findParametersInToken(englishToken : string, inputToken : stri
     -- Then, using the parameters table, remove the beginning and end of the token
     -- So that we only have the parameters left
     local token = englishToken
+    local tokenOrder = {}
 
-    for _, parameter in ipairs(parameters) do
-        token = token:gsub(parameter, "")
-    end
+    for index, parameter in ipairs(parameters) do
+        local parameterIndex, parameterIndexEnd = token:find(parameter)
+        local nextParameterIndex = parameters[index + 1] ~= nil and token:find(parameters[index + 1]) or #token
+        local prefix = token:sub(1, parameterIndex - 1)
 
-    -- Get the parameters from the input token
-    local inputParameters = {}
+        token = token:sub(parameterIndexEnd + 1, #token)
 
-    for parameter in inputToken:gmatch("%w+") do
-        table.insert(inputParameters, parameter)
+        table.insert(tokenOrder, prefix)
     end
 
     -- Create a table with the parameters in the correct order
     local orderedParameters = {}
 
-    for _, parameter in ipairs(parameters) do
-        for _, inputParameter in ipairs(inputParameters) do
-            if parameter == "!PARAM" .. #orderedParameters + 1 then
-                table.insert(orderedParameters, inputParameter)
-            end
-        end
+    for parameterIndex, parameter in ipairs(parameters) do
+        local tokenOrderStart, tokenOrderEnd = inputToken:find(tokenOrder[parameterIndex])
+        local nextTokenOrderStart = tokenOrder[parameterIndex + 1] ~= nil and inputToken:find(tokenOrder[parameterIndex + 1]) or #inputToken
+
+        table.insert(orderedParameters, inputToken:sub(tokenOrderEnd + 1, nextTokenOrderStart - 1))
     end
 
     return orderedParameters
