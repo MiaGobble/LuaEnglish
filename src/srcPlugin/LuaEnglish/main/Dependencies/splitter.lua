@@ -11,7 +11,7 @@ function splitter:separateStringIntoLines(string : string)
     return lines
 end
 
-function splitter:GetTokenOrder(englishToken : string)
+function splitter:getTokenOrder(englishToken : string)
     local parameters = {}
 
     for parameter in englishToken:gmatch("!PARAM%d") do
@@ -47,7 +47,7 @@ function splitter:findParametersInToken(englishToken : string, inputToken : stri
     --      ^   test    ^
 
     -- Get the parameters from the english token
-    local tokenOrder = self:GetTokenOrder(englishToken)
+    local tokenOrder = self:getTokenOrder(englishToken)
 
     -- Create a table with the parameters in the correct order
     local orderedParameters = {}
