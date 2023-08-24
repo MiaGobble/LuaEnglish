@@ -119,4 +119,9 @@ return {--[[
         lua = `!PARAM1(!PARAM2)`,
         english = `call function !PARAM1 with !PARAM2`,
     },
+
+    {
+        lua = `--[[!PARAM1]]`,
+        english = `note: !PARAM1 end of note.`,
+    },
 }
