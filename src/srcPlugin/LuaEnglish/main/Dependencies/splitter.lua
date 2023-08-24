@@ -11,18 +11,7 @@ function splitter:separateStringIntoLines(string : string)
     return lines
 end
 
-function splitter:findParametersInToken(englishToken : string, inputToken : string)
-    -- Finds the parameters in a token where "!PARAM#" normally is
-    -- And extract them from the inputToken
-
-    --      v   test    v
-
-    --englishToken = "raw set !PARAM2 in !PARAM1 to !PARAM3"
-    --inputToken = "raw set test 2 in test 1 test to footest3"
-    
-    --      ^   test    ^
-
-    -- Get the parameters from the english token
+function splitter:GetTokenOrder(englishToken : string)
     local parameters = {}
 
     for parameter in englishToken:gmatch("!PARAM%d") do
@@ -36,13 +25,29 @@ function splitter:findParametersInToken(englishToken : string, inputToken : stri
 
     for index, parameter in ipairs(parameters) do
         local parameterIndex, parameterIndexEnd = token:find(parameter)
-        local nextParameterIndex = parameters[index + 1] ~= nil and token:find(parameters[index + 1]) or #token
         local prefix = token:sub(1, parameterIndex - 1)
 
         token = token:sub(parameterIndexEnd + 1, #token)
 
         table.insert(tokenOrder, prefix)
     end
+
+    return tokenOrder
+end
+
+function splitter:findParametersInToken(englishToken : string, inputToken : string)
+    -- Finds the parameters in a token where "!PARAM#" normally is
+    -- And extract them from the inputToken
+
+    --      v   test    v
+
+    --englishToken = "raw set !PARAM2 in !PARAM1 to !PARAM3"
+    --inputToken = "raw set test 2 in test 1 test to footest3"
+    
+    --      ^   test    ^
+
+    -- Get the parameters from the english token
+    local tokenOrder = self:GetTokenOrder(englishToken)
 
     -- Create a table with the parameters in the correct order
     local orderedParameters = {}
