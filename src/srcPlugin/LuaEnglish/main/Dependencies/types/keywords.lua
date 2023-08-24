@@ -1,28 +1,28 @@
 return {
-    {
-        lua = `if !PARAM1 then !PARAM2`,
-        english = `if !PARAM1 then !PARAM2`,
-    },
+    -- {
+    --     lua = `if !PARAM1 then !PARAM2`,
+    --     english = `if !PARAM1 then !PARAM2`,
+    -- },
 
-    {
-        lua = `while !PARAM1`,
-        english = `while !PARAM1`,
-    },
+    -- {
+    --     lua = `while !PARAM1`,
+    --     english = `while !PARAM1`,
+    -- },
 
     {
         lua = `break`,
         english = `stop this loop`,
     },
 
-    {
-        lua = `true`,
-        english = `true`,
-    },
+    -- {
+    --     lua = `true`,
+    --     english = `true`,
+    -- },
 
-    {
-        lua = `false`,
-        english = `false`,
-    },
+    -- {
+    --     lua = `false`,
+    --     english = `false`,
+    -- },
 
     {
         lua = `else !PARAM1`,
@@ -31,17 +31,17 @@ return {
 
     {
         lua = `for !PARAM1`,
-        english = `loop`,
+        english = `loop !PARAM1`,
     },
 
-    {
-        lua = `until !PARAM1`,
-        english = `until !PARAM1`,
-    },
+    -- {
+    --     lua = `until !PARAM1`,
+    --     english = `until !PARAM1`,
+    -- },
 
     {
         lua = `do !PARAM1`,
-        english = `lets: !PARAM1`,
+        english = `lets !PARAM1`,
     },
 
     {
@@ -67,15 +67,5 @@ return {
     {
         lua = `repeat !PARAM1`,
         english = `keep doing !PARAM1`,
-    },
-
-    {
-        lua = `until !PARAM1`,
-        english = `until !PARAM1`,
-    },
-
-    {
-        lua = ``,
-        english = ``,
     },
 }

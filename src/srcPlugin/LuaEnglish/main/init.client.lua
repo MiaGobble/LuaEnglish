@@ -1,14 +1,16 @@
---local dependencies = script.Dependencies
+local dependencies = script.Dependencies
 
---local builder = require(dependencies.builder)
+local builder = require(dependencies.builder)
 
--- function _G.build()
---     print("build src")
+function _G.build()
+    print("build src")
 
---     builder:Build()
+    builder:build()
 
---     print("build done")
--- end
+    print("build done")
+end
+
+print("a")
 
 function _G.test()
     local engToken = "methodName !PARAM2, !PARAM3, !PARAM1 "
@@ -19,3 +21,5 @@ function _G.test()
     local splitter = require(script.Dependencies.splitter)
     print(splitter:findParametersInToken(engToken, inputToken))
 end
+
+print("b")

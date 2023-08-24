@@ -50,7 +50,7 @@ local function isObjectAScript(object : Instance)
     return object:IsA("Script") or object:IsA("LocalScript") or object:IsA("ModuleScript")
 end
 
-function builder:Build()
+function builder:build()
     for _, bin in path:GetChildren() do
         local parent = game:FindFirstChild(bin.Name)
         

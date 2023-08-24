@@ -11,7 +11,7 @@ return {--[[
     },
 
     {
-        lua = `!PARAM1 += !PARAM2`,
+        lua = `!PARAM2 += !PARAM1`,
         english = `add !PARAM2 to !PARAM1`,
     },
 
@@ -66,6 +66,11 @@ return {--[[
     },
 
     {
+        lua = `!PARAM1 = !PARAM2`,
+        english = `set !PARAM1 to !PARAM2`,
+    },
+
+    {
         lua = `!PARAM1 ~= !PARAM2`,
         english = `!PARAM1 is not equal to !PARAM2`,
     },
@@ -90,20 +95,20 @@ return {--[[
         english = `!PARAM1 is greater than or equal to !PARAM2`,
     },
 
-    {
-        lua = `!PARAM1 and !PARAM2`,
-        english = `!PARAM1 and !PARAM2`,
-    },
+    -- {
+    --     lua = `!PARAM1 and !PARAM2`,
+    --     english = `!PARAM1 and !PARAM2`,
+    -- },
 
-    {
-        lua = `!PARAM1 or !PARAM2`,
-        english = `!PARAM1 or !PARAM2`,
-    },
+    -- {
+    --     lua = `!PARAM1 or !PARAM2`,
+    --     english = `!PARAM1 or !PARAM2`,
+    -- },
 
-    {
-        lua = `!PARAM1 not !PARAM2`,
-        english = `!PARAM1 not !PARAM2`,
-    },
+    -- {
+    --     lua = `!PARAM1 not !PARAM2`,
+    --     english = `!PARAM1 not !PARAM2`,
+    -- },
 
     {
         lua = "{!PARAM1}",
@@ -121,7 +126,7 @@ return {--[[
     },
 
     {
-        lua = `--[[!PARAM1]]`,
-        english = `note: !PARAM1 end of note.`,
+        lua = `--[[!PARAM1--]]`,
+        english = `note:!PARAM1end of note.`,
     },
 }
