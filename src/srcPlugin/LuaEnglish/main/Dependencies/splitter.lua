@@ -11,22 +11,16 @@ function splitter:separateStringIntoLines(string : string)
     return lines
 end
 
---[[
-    {
-        lua = `rawset(!PARAM1, !PARAM2, !PARAM3)`,
-        english = `raw set !PARAM2 in !PARAM1 to !PARAM3`,
-    },
-
-    englishToken = `raw set !PARAM2 in !PARAM1 to !PARAM3`
-    inputToken = `raw set !PARAM2 in !PARAM1 to !PARAM3`
-]]
-
 function splitter:findParametersInToken(englishToken : string, inputToken : string)
     -- Finds the parameters in a token where "!PARAM#" normally is
     -- And extract them from the inputToken
 
-    englishToken = "raw set !PARAM2 in !PARAM1 to !PARAM3"
-    inputToken = "raw set test 2 in test 1 test to footest3"
+    --      v   test    v
+
+    --englishToken = "raw set !PARAM2 in !PARAM1 to !PARAM3"
+    --inputToken = "raw set test 2 in test 1 test to footest3"
+    
+    --      ^   test    ^
 
     -- Get the parameters from the english token
     local parameters = {}
