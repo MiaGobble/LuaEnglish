@@ -1,28 +1,16 @@
 --[[ LUAENGLISH -- DO NOT DELETE THIS LINE -- 
 
-note:
-this is a test note.
-here is more of the note!
-end of note.
+remember list and set it to list: 1, 2, 3, 4, 5, 6, 7, 8, 9. end of list.
 
-note: test singleline end of note.
+loop index, value read from ordered iteration of list, lets
+    print index joined with value
 
-make a new variable called bobbyjoe and set it to 17
+    if index is 5 then
+        stop this loop
+    thats it
 
-make a new variable called foo and set it to "hi there"
+thats it
 
-make a new variable called bar and set it to "note: test singleline end of note."
-
-set bobbyjoe to 2
-
-note:
-add 1 to bobbyjoe
-end of note.
-
-set bobbyjoe to bobbyjoe plus 1
-
-set foo to "byeee"
-
-concatenate foo with " cya!"
+print length of list
 
 -- LUAENGLISH -- DO NOT DELETE THIS LINE -- ]]

@@ -41,7 +41,7 @@ return {
 
     {
         lua = `do !PARAM1`,
-        english = `lets !PARAM1`,
+        english = `, lets !PARAM1`,
     },
 
     {
@@ -56,7 +56,7 @@ return {
 
     {
         lua = `local !PARAM1 = !PARAM2`,
-        english = `make a new variable called !PARAM1 and set it to !PARAM2`,
+        english = `remember !PARAM1 and set it to !PARAM2`,
     },
 
     {

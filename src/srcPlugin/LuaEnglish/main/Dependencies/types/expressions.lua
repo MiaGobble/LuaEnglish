@@ -57,7 +57,7 @@ return {--[[
 
     {
         lua = `!PARAM1 .. !PARAM2`,
-        english = `!PARAM1 concatenated with !PARAM2`,
+        english = `!PARAM1 joined with !PARAM2`,
     },
 
     {
@@ -112,7 +112,7 @@ return {--[[
 
     {
         lua = "{!PARAM1}",
-        english = `list: !PARAM1 . end of list.`,
+        english = `list: !PARAM1. end of list.`,
     },
 
     {
@@ -126,7 +126,7 @@ return {--[[
     },
 
     {
-        lua = `--[[!PARAM1--]]`,
-        english = `note:!PARAM1end of note.`,
-    },
+        lua = `!PARAM1.!PARAM2`,
+        english = `!PARAM1 -> !PARAM2`,
+    }
 }
