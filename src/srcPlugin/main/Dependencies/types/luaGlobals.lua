@@ -52,7 +52,7 @@ return {--[[
 
     {
         lua = `print(!PARAM1)`,
-        english = `print !PARAM1.`,
+        english = `say: !PARAM1 and stop speaking.`,
     },
 
     {

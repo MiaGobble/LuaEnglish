@@ -40,13 +40,13 @@ return {
     -- },
 
     {
-        lua = `!PARAM2 do !PARAM1`,
-        english = `!PARAM2 lets !PARAM1:`,
+        lua = `do !PARAM1`,
+        english = `lets:!PARAM1`,
     },
 
     {
-        lua = `!PARAM1 end`,
-        english = `!PARAM1 thats it.`,
+        lua = `end`,
+        english = `thats it.`,
     },
 
     {

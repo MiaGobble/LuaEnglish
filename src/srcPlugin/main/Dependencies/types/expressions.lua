@@ -117,7 +117,7 @@ return {--[[
 
     {
         lua = "#!PARAM1",
-        english = `lenth of !PARAM1`,
+        english = `the length of !PARAM1 as a number`,
     },
 
     {
