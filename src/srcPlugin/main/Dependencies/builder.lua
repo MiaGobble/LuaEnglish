@@ -47,13 +47,24 @@ local function buildScript(scriptObject)
         scriptObject:Destroy()
         finalObject = newObject
     elseif scriptObject.Name:find("client.") then
-        local newObject = Instance.new("Script")
+        local newObject = Instance.new("LocalScript")
         
         for _, child in scriptObject:GetChildren() do
             child.Parent = newObject
         end
 
         newObject.Name = scriptObject.Name:sub(8)
+        newObject.Parent = scriptObject.Parent
+        scriptObject:Destroy()
+        finalObject = newObject
+    else
+        local newObject = Instance.new("ModuleScript")
+        
+        for _, child in scriptObject:GetChildren() do
+            child.Parent = newObject
+        end
+
+        newObject.Name = scriptObject.Name
         newObject.Parent = scriptObject.Parent
         scriptObject:Destroy()
         finalObject = newObject
@@ -84,17 +95,16 @@ function builder:build()
 
         for _, object in bin:GetChildren() do
             local buildSource = object:Clone()
-            buildSource.Parent = object.Parent
+
+            if isObjectAScript(object) then
+                buildSource = buildScript(buildSource)
+             end
 
             for _, subObject in buildSource:GetDescendants() do
                 if isObjectAScript(subObject) then
                     local finalObject = buildScript(subObject)
-                    finalObject.Parent = buildSource
+                    --finalObject.Parent = buildSource
                 end
-            end
-
-            if isObjectAScript(object) then
-               buildSource = buildScript(buildSource)
             end
 
             buildSource.Parent = parent
