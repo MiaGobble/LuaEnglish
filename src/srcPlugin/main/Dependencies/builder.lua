@@ -56,6 +56,8 @@ function builder:build()
     for _, bin in path:GetChildren() do
         local parent = game:FindFirstChild(bin.Name)
         
+        parent:ClearAllChildren()
+
         for _, object in bin:GetChildren() do
             local buildSource = object:Clone()
 
@@ -67,10 +69,6 @@ function builder:build()
                 if isObjectAScript(subObject) then
                     buildScript(subObject)
                 end
-            end
-
-            if parent:FindFirstChild(buildSource.Name) then
-                parent:FindFirstChild(buildSource.Name):Destroy()
             end
 
             buildSource.Parent = parent
