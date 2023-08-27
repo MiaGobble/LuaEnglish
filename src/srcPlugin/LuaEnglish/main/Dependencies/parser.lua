@@ -34,21 +34,33 @@ local function readPattern(pattern, code, ignoreIndexes)
         local searchIndex = repeatIndex
         local start, finish = nil, nil
 
-        for loopIndex, token in ipairs(tokenOrder) do
-            local tokenIndex = code:find(token, searchIndex)
-    
-            if tokenIndex then
-                if loopIndex == 1 then
-                    start = tokenIndex
-                elseif loopIndex == #tokenOrder and tokenIndex > start then
-                    finish = tokenIndex + #token - 1
-                    searchIndex = finish
-                end
-    
-                continue
+        if #tokenOrder == 1 then
+            start = code:find(tokenOrder[1], searchIndex)
+            
+            if start then
+                finish = start + #pattern.english - 1
+                searchIndex = finish
             else
                 found = false
-                break
+            end
+        else
+            for loopIndex, token in ipairs(tokenOrder) do
+                local tokenIndex = code:find(token, searchIndex)
+        
+                if tokenIndex then
+                    if loopIndex == 1 then
+                        start = tokenIndex
+                    elseif loopIndex == #tokenOrder and tokenIndex > start then
+                        finish = tokenIndex + #token - 1
+                        searchIndex = finish
+                    end
+        
+                    continue
+                else
+                    --print("Stopped at loopIndex", loopIndex, "out of", #tokenOrder, table.concat(tokenOrder, ">> "))
+                    found = false
+                    break
+                end
             end
         end
 
@@ -67,8 +79,12 @@ local function readPattern(pattern, code, ignoreIndexes)
                     warn("IGNORED", code:sub(ignoreIndexData[1], ignoreIndexData[2]))
                 end
             end
+        elseif found then
+            print("Found but not start and finish", pattern.english, start, finish, "[" .. table.concat(tokenOrder, ">> ") .. "]")
         end
     until not ignored or not found
+
+    --warn("i f", ignored, found)
 
     return discoveredType, ignored
 end
@@ -124,7 +140,7 @@ local function findNextTypeInCode(code : string, lastStart : number, lastFinish 
     end
 
     if not discoveredType then
-        for _, codeType in pairs(types) do
+        for _, codeType in ipairs(types) do
             for _, pattern in pairs(codeType) do
                 discoveredType = readPattern(pattern, code, ignoreIndexes)
     

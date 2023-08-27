@@ -52,7 +52,7 @@ return {--[[
 
     {
         lua = `print(!PARAM1)`,
-        english = `print !PARAM1`,
+        english = `print !PARAM1.`,
     },
 
     {
@@ -102,61 +102,61 @@ return {--[[
 
     {
         lua = `xpcall(!PARAM1, !PARAM2)`,
-        english = `safely run function !PARAM1 with error handler !PARAM2`,
+        english = `safely run function !PARAM1 with error handler !PARAM2.`,
     },
 
     {
         lua = `coroutine.create(!PARAM1)`,
-        english = `create coroutine from function !PARAM1`,
+        english = `create coroutine from function !PARAM1.`,
     },
 
     {
         lua = `coroutine.isyieldable()`,
-        english = `is coroutine yieldable`,
+        english = `is coroutine yieldable?`,
     },
 
     {
         lua = `coroutine.resume(!PARAM1, !PARAM2)`,
-        english = `resume coroutine !PARAM1 with arguments !PARAM2`,
+        english = `resume coroutine !PARAM1 with arguments !PARAM2.`,
     },
 
     {
         lua = `coroutine.running()`,
-        english = `get running coroutine`,
+        english = `get running coroutine.`,
     },
 
     {
         lua = `coroutine.status(!PARAM1)`,
-        english = `get status of coroutine !PARAM1`,
+        english = `get status of coroutine !PARAM1.`,
     },
 
     {
         lua = `coroutine.wrap(!PARAM1)`,
-        english = `wrap function !PARAM1 in coroutine`,
+        english = `wrap function !PARAM1 in coroutine.`,
     },
 
     {
         lua = `coroutine.yield(!PARAM1)`,
-        english = `yield coroutine with arguments !PARAM1`,
+        english = `yield coroutine with arguments !PARAM1.`,
     },
 
     {
         lua = `debug.debug()`,
-        english = `debug`,
+        english = `debug.`,
     },
 
     {
         lua = `debug.gethook()`,
-        english = `get debug hook`,
+        english = `get debug hook.`,
     },
 
     {
         lua = `debug.getinfo(!PARAM1, !PARAM2)`,
-        english = `get debug info of !PARAM1 with !PARAM2`,
+        english = `get debug info of !PARAM1 with !PARAM2.`,
     },
 
     {
         lua = `debug.getlocal(!PARAM1, !PARAM2)`,
-        english = `get debug local of !PARAM1 with !PARAM2`,
+        english = `get debug local of !PARAM1 with !PARAM2.`,
     },
 }

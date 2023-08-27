@@ -11,7 +11,7 @@ return {
 
     {
         lua = `break`,
-        english = `stop this loop`,
+        english = `stop this loop.`,
     },
 
     -- {
@@ -26,12 +26,12 @@ return {
 
     {
         lua = `else !PARAM1`,
-        english = `otherwise !PARAM1`,
+        english = `otherwise !PARAM1:`,
     },
 
     {
         lua = `for !PARAM1`,
-        english = `loop !PARAM1`,
+        english = `loop !PARAM1:`,
     },
 
     -- {
@@ -40,18 +40,18 @@ return {
     -- },
 
     {
-        lua = `do !PARAM1`,
-        english = `, lets !PARAM1`,
+        lua = `!PARAM2 do !PARAM1`,
+        english = `!PARAM2 lets !PARAM1:`,
     },
 
     {
         lua = `!PARAM1 end`,
-        english = `!PARAM1 thats it`,
+        english = `!PARAM1 thats it.`,
     },
 
     {
         lua = `!PARAM1 in !PARAM2`,
-        english = `!PARAM1 read from !PARAM2`,
+        english = `!PARAM1 read from !PARAM2;`,
     },
 
     {
@@ -66,6 +66,6 @@ return {
 
     {
         lua = `repeat !PARAM1`,
-        english = `keep doing !PARAM1`,
+        english = `keep doing !PARAM1:`,
     },
 }

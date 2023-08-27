@@ -67,7 +67,7 @@ return {--[[
 
     {
         lua = `!PARAM1 = !PARAM2`,
-        english = `set !PARAM1 to !PARAM2`,
+        english = `set variable !PARAM1 to !PARAM2`,
     },
 
     {
