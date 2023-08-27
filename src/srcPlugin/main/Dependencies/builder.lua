@@ -10,22 +10,30 @@ local function stripHeaderComments(srcEnglish)
     local lastBreak = srcEnglish:reverse():find("\n")
 
     if not firstBreak then
-        emergency:panic("English identifying header not found")
+        emergency:stress("English identifying header not found")
     end
 
     if not lastBreak then
-        emergency:panic("English identifying footer not found")
+        emergency:stress("English identifying footer not found")
+    else
+        lastBreak += 1
     end
 
-    lastBreak += 1
-
-    return srcEnglish:sub(firstBreak + 1, srcEnglish:len() - lastBreak)
+    if firstBreak and lastBreak then
+        return srcEnglish:sub(firstBreak + 1, srcEnglish:len() - lastBreak)
+    else
+        return srcEnglish
+    end
 end
 
 local function buildScript(scriptObject)
     local srcEnglish = stripHeaderComments(scriptObject.Source)
     local src = parser:parse(srcEnglish, scriptObject.Name:gsub("%.", "/") .. ".lua")
     local finalObject = scriptObject
+
+    if scriptObject:GetAttribute("EnglishSource") then
+        emergency:panic("Script already has EnglishSource attribute")
+    end
 
     if scriptObject.Name:find("server.") then
         local newObject = Instance.new("Script")
@@ -51,6 +59,8 @@ local function buildScript(scriptObject)
         finalObject = newObject
     end
 
+    finalObject:SetAttribute("EnglishSource", scriptObject:GetFullName():gsub("game%.", "") .. ".lua")
+
     finalObject.Source = src
 
     return finalObject
@@ -74,15 +84,17 @@ function builder:build()
 
         for _, object in bin:GetChildren() do
             local buildSource = object:Clone()
+            buildSource.Parent = object.Parent
+
+            for _, subObject in buildSource:GetDescendants() do
+                if isObjectAScript(subObject) then
+                    local finalObject = buildScript(subObject)
+                    finalObject.Parent = buildSource
+                end
+            end
 
             if isObjectAScript(object) then
                buildSource = buildScript(buildSource)
-            end
-
-            for _, subObject in object:GetDescendants() do
-                if isObjectAScript(subObject) then
-                    buildScript(subObject)
-                end
             end
 
             buildSource.Parent = parent

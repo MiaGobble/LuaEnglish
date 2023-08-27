@@ -1,5 +1,3 @@
 --[[ LUAENGLISH -- DO NOT DELETE THIS LINE -- 
-
-say: "Hello there" and stop speaking.
-
+remember bar and set it to list: end of list.
 -- LUAENGLISH -- DO NOT DELETE THIS LINE -- ]]
