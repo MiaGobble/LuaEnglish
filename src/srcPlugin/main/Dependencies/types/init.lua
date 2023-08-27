@@ -10,4 +10,5 @@ return {
     [4] = require(script.robloxGlobals),
     [2] = require(script.keywords),
     [1] = require(script.expressions),
+    [5] = require(script.englishCustom),
 }

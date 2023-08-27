@@ -120,13 +120,8 @@ return {--[[
         english = `the length of !PARAM1 as a number`,
     },
 
-    {
-        lua = `!PARAM1(!PARAM2)`,
-        english = `call function !PARAM1 with !PARAM2`,
-    },
-
-    {
-        lua = `!PARAM1.!PARAM2`,
-        english = `!PARAM1 -> !PARAM2`,
-    }
+    -- {
+    --     lua = `!PARAM1.!PARAM2`,
+    --     english = `PARAM`,
+    -- }
 }

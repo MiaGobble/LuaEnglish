@@ -17,7 +17,7 @@ return {--[[
 
     {
         lua = `require(!PARAM1)`,
-        english = `get module !PARAM1`,
+        english = `the !PARAM1 module`,
     },
 
     {
