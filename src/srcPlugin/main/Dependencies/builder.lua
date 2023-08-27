@@ -3,7 +3,7 @@ local builder = {}
 local ServerStorage = game:GetService("ServerStorage")
 
 local parser = require(script.Parent.parser)
-local path = ServerStorage:WaitForChild("src")
+local emergency = require(script.Parent.emergency)
 
 local function stripHeaderComments(srcEnglish)
     local firstBreak = srcEnglish:find("\n")
@@ -16,7 +16,7 @@ end
 
 local function buildScript(scriptObject)
     local srcEnglish = stripHeaderComments(scriptObject.Source)
-    local src = parser:parse(srcEnglish)
+    local src = parser:parse(srcEnglish, scriptObject.Name:gsub("%.", "/") .. ".lua")
     local finalObject = scriptObject
 
     if scriptObject.Name:find("server.") then
@@ -53,6 +53,12 @@ local function isObjectAScript(object : Instance)
 end
 
 function builder:build()
+    local path = ServerStorage:FindFirstChild("src")
+
+    if not path then
+        emergency:panic("Could not find src folder in ServerStorage")
+    end
+
     for _, bin in path:GetChildren() do
         local parent = game:FindFirstChild(bin.Name)
         

@@ -3,6 +3,7 @@ local parser = {}
 local types = require(script.Parent.types)
 local priorityType = require(script.Parent.types.priority)
 local splitter = require(script.Parent.splitter)
+local emergency = require(script.Parent.emergency)
 
 local function isUnescapable(character : string, index : number, characterSet : {})
     if character == `"` then
@@ -34,7 +35,10 @@ local function readPattern(pattern, code, ignoreIndexes)
         local searchIndex = repeatIndex
         local start, finish = nil, nil
 
-        if #tokenOrder == 1 then
+        if #tokenOrder == 0 then
+            emergency:stress("Token order is empty when attempting to read pattern")
+            found = false
+        elseif #tokenOrder == 1 then
             start = code:find(tokenOrder[1], searchIndex)
             
             if start then
@@ -104,7 +108,7 @@ local function findNextTypeInCode(code : string, lastStart : number, lastFinish 
             local unescapable, ignoreLength, ignoreType = isUnescapable(characterSet[ignoreSearchIndex], ignoreSearchIndex, characterSet)
     
             if os.clock() - start > 1 then
-                warn("Exhausted ignore time")
+                emergency:panic("Exhausted compile time at expression ignore level")
                 break
             end
 
@@ -152,16 +156,24 @@ local function findNextTypeInCode(code : string, lastStart : number, lastFinish 
     return discoveredType
 end
 
-function parser:parse(code : string)
+function parser:parse(code : string, path : string)
     local start = os.clock()
 
     local lastStart, lastFinish = -1, -1
 
+    warn("Parsing " .. path .. "...")
+
     while true do
         local discoveredType = findNextTypeInCode(code, lastStart, lastFinish)
 
+        if discoveredType then
+            print("Found " .. discoveredType.codeType.english .. " at " .. discoveredType.start .. " to " .. discoveredType.finish)
+        else
+            print("Could not find any more types")
+        end
+
         if os.clock() - start > 1 then
-            warn("Exhausted compile time")
+            emergency:panic("Exhausted compile time at parsing level")
             break
         elseif discoveredType then
             local parameters = splitter:findParametersInToken(discoveredType.codeType.english, code:sub(discoveredType.start, discoveredType.finish))
@@ -169,6 +181,11 @@ function parser:parse(code : string)
 
             for index, parameter in parameters do
                 local replaceStart, replaceEnd = replacement:find("!PARAM" .. index)
+
+                if not replaceStart then
+                    emergency:panic("Could not find parameter in replacement string")
+                end
+
                 replacement = replacement:sub(1, replaceStart - 1) .. parameter .. replacement:sub(replaceEnd + 1, #replacement)
             end
 
