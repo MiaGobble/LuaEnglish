@@ -9,6 +9,14 @@ local function stripHeaderComments(srcEnglish)
     local firstBreak = srcEnglish:find("\n")
     local lastBreak = srcEnglish:reverse():find("\n")
 
+    if not firstBreak then
+        emergency:panic("English identifying header not found")
+    end
+
+    if not lastBreak then
+        emergency:panic("English identifying footer not found")
+    end
+
     lastBreak += 1
 
     return srcEnglish:sub(firstBreak + 1, srcEnglish:len() - lastBreak)
