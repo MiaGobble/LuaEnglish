@@ -57,7 +57,6 @@ local function readPattern(pattern, code, ignoreIndexes)
         
                     continue
                 else
-                    --print("Stopped at loopIndex", loopIndex, "out of", #tokenOrder, table.concat(tokenOrder, ">> "))
                     found = false
                     break
                 end
@@ -76,15 +75,10 @@ local function readPattern(pattern, code, ignoreIndexes)
                     discoveredType = nil
                     ignored = true
                     repeatIndex = finish + 1
-                    warn("IGNORED", code:sub(ignoreIndexData[1], ignoreIndexData[2]))
                 end
             end
-        elseif found then
-            print("Found but not start and finish", pattern.english, start, finish, "[" .. table.concat(tokenOrder, ">> ") .. "]")
         end
     until not ignored or not found
-
-    --warn("i f", ignored, found)
 
     return discoveredType, ignored
 end
@@ -170,16 +164,10 @@ function parser:parse(code : string)
             warn("Exhausted compile time")
             break
         elseif discoveredType then
-            print(discoveredType.codeType)
-
-            print(discoveredType.start, discoveredType.finish)
             local parameters = splitter:findParametersInToken(discoveredType.codeType.english, code:sub(discoveredType.start, discoveredType.finish))
             local replacement = discoveredType.codeType.lua
 
-            print("PARAMETERS:", parameters)
-
             for index, parameter in parameters do
-                print(index, parameter, "!PARAM" .. index, replacement:find("!PARAM" .. index))
                 local replaceStart, replaceEnd = replacement:find("!PARAM" .. index)
                 replacement = replacement:sub(1, replaceStart - 1) .. parameter .. replacement:sub(replaceEnd + 1, #replacement)
             end
@@ -191,10 +179,7 @@ function parser:parse(code : string)
         end
 
         task.wait()
-        print("loop")
     end
-
-    print("done")
 
     return code
 end

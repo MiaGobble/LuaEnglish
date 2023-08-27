@@ -83,9 +83,6 @@ function splitter:findParametersInToken(englishToken : string, inputToken : stri
         local tokenOrderStart, tokenOrderEnd = inputToken:find(tokenOrder[parameterIndex])
         local nextTokenOrderStart = tokenOrder[parameterIndex + 1] ~= nil and inputToken:find(tokenOrder[parameterIndex + 1]) or #inputToken
 
-        print(tokenOrder[parameterIndex])
-        print(englishToken, "///", inputToken)
-
         table.insert(orderedParameters, inputToken:sub(tokenOrderEnd + 1, nextTokenOrderStart - 1))
     end
 
