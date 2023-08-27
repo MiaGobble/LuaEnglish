@@ -102,8 +102,7 @@ function builder:build()
 
             for _, subObject in buildSource:GetDescendants() do
                 if isObjectAScript(subObject) then
-                    local finalObject = buildScript(subObject)
-                    --finalObject.Parent = buildSource
+                    buildScript(subObject)
                 end
             end
 
