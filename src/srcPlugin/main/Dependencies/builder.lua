@@ -9,6 +9,8 @@ local function stripHeaderComments(srcEnglish)
     local firstBreak = srcEnglish:find("\n")
     local lastBreak = srcEnglish:reverse():find("\n")
 
+    lastBreak += 1
+
     return srcEnglish:sub(firstBreak + 1, srcEnglish:len() - lastBreak)
 end
 

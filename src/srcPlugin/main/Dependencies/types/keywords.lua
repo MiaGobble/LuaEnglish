@@ -40,8 +40,8 @@ return {
     -- },
 
     {
-        lua = `do !PARAM1`,
-        english = `lets:!PARAM1`,
+        lua = ` do`,
+        english = ` lets:`,
     },
 
     {
