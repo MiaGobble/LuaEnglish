@@ -4,7 +4,7 @@
     "$className": "DataModel",
 
     "ServerStorage": {
-      "PluginSource": {
+      "LuaEnglish": {
         "$path": "src/srcPlugin"
       },
 

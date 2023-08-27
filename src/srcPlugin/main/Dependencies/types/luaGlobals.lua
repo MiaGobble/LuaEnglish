@@ -27,7 +27,7 @@ return {--[[
 
     {
         lua = `ipairs(!PARAM1)`,
-        english = `ordered iteration of !PARAM1`,
+        english = `ordered iteration of !PARAM1, starting at 1`,
     },
 
     {
