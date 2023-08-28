@@ -83,4 +83,9 @@ return {
         lua = `game:GetService("!PARAM1")`,
         english = `the !PARAM1 service`,
     },
+
+    {
+        lua = `task.wait(!PARAM1)`,
+        english = `wait !PARAM1 seconds`,
+    },
 }
