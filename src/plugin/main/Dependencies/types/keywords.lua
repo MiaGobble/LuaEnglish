@@ -25,9 +25,19 @@ return {
     -- },
 
     {
-        lua = `else !PARAM1`,
-        english = `otherwise !PARAM1:`,
+        lua = `else`,
+        english = `otherwise `,
     },
+
+    {
+        lua = `else`,
+        english = `otherwise`,
+    },
+
+    -- {
+    --     lua = `elseif !PARAM1`,
+    --     english = `but if not, if !PARAM1`,
+    -- },
 
     {
         lua = `for !PARAM1`,
