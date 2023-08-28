@@ -10,6 +10,11 @@ return {
     },
 
     {
+        lua = `function !PARAM1(!PARAM2)`,
+        english = `a function named !PARAM1 that takes !PARAM2 as parameters, which can:`,
+    },
+
+    {
         lua = ``,
         english = `zilch`,
     },
@@ -27,5 +32,10 @@ return {
     { -- This is put after to avoid issues
         lua = `!PARAM1(!PARAM2)`,
         english = `call function !PARAM1 with !PARAM2`,
+    },
+
+    {
+        lua = `!PARAM1:Connect(!PARAM2)`,
+        english = `upon !PARAM1 happening, call function !PARAM2 at that time`,
     },
 }
