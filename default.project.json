@@ -5,11 +5,11 @@
 
     "ServerStorage": {
       "LuaEnglish": {
-        "$path": "src/srcPlugin"
+        "$path": "src/plugin"
       },
 
       "src": {
-        "$path": "src/srcEnglish"
+        "$path": "src/src"
       }
     }
   }
