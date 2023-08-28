@@ -90,6 +90,10 @@ function builder:build()
 
     for _, bin in path:GetChildren() do
         local parent = game:FindFirstChild(bin.Name)
+
+        if parent == ServerStorage then
+            emergency:panic("Cannot build to ServerStorage; lacking permissions")
+        end
         
         parent:ClearAllChildren()
 
