@@ -12,7 +12,7 @@ return {--[[
 
     {
         lua = `gcinfo()`,
-        english = `get memory heap size`,
+        english = `get memory size`,
     },
 
     {
@@ -22,12 +22,12 @@ return {--[[
 
     {
         lua = `settings()`,
-        english = `get settings`,
+        english = `get user settings`,
     },
 
     {
-        lua = `spawn(!PARAM1)`,
-        english = `spawn function !PARAM1`,
+        lua = `task.defer(!PARAM1)`,
+        english = `separately run !PARAM1`,
     },
 
     {
@@ -37,12 +37,12 @@ return {--[[
 
     {
         lua = `time()`,
-        english = `get time`,
+        english = `get current time`,
     },
 
     {
         lua = `typeof(!PARAM1)`,
-        english = `get type of !PARAM1`,
+        english = `get !PARAM1's type`,
     },
 
     {
@@ -51,7 +51,7 @@ return {--[[
     },
 
     {
-        lua = `wait(!PARAM1)`,
+        lua = `task.wait(!PARAM1)`,
         english = `wait !PARAM1 seconds`,
     },
 

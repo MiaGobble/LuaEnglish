@@ -11,7 +11,7 @@ return {
 
     {
         lua = `break`,
-        english = `stop this loop.`,
+        english = `stop this loop`,
     },
 
     -- {
@@ -41,8 +41,13 @@ return {
 
     {
         lua = `for !PARAM1`,
-        english = `loop !PARAM1:`,
+        english = `for all !PARAM1 and !PARAM2`,
     },
+
+    -- {
+    --     lua = `for !PARAM1`,
+    --     english = `for all of !PARAM1:`,
+    -- },
 
     -- {
     --     lua = `until !PARAM1`,
@@ -56,17 +61,22 @@ return {
 
     {
         lua = `end`,
-        english = `thats it.`,
+        english = `thats it`,
+    },
+
+    {
+        lua = `end`,
+        english = `thats all`,
     },
 
     {
         lua = `!PARAM1 in !PARAM2`,
-        english = `!PARAM1 read from !PARAM2;`,
+        english = `!PARAM1 derived from !PARAM2;`,
     },
 
     {
         lua = `local !PARAM1 = !PARAM2`,
-        english = `remember !PARAM1 and set it to !PARAM2`,
+        english = `remember !PARAM1 as !PARAM2`,
     },
 
     {

@@ -22,12 +22,12 @@ return {--[[
 
     {
         lua = `getmetatable(!PARAM1)`,
-        english = `get the table from table !PARAM1`,
+        english = `special table from !PARAM1`,
     },
 
     {
         lua = `ipairs(!PARAM1)`,
-        english = `ordered iteration of !PARAM1, starting at 1`,
+        english = `order of !PARAM1, starting at 1`,
     },
 
     {
@@ -37,17 +37,17 @@ return {--[[
 
     {
         lua = `next(!PARAM1, !PARAM2)`,
-        english = `iterate next key after !PARAM2 in table !PARAM1`,
+        english = `next key after !PARAM2 in table !PARAM1`,
     },
 
     {
-        lua = `pars(!PARAM1)`,
-        english = `iteration of !PARAM1`,
+        lua = `pairs(!PARAM1)`,
+        english = `all of !PARAM1`,
     },
 
     {
         lua = `pcall(!PARAM1)`,
-        english = `safely run function !PARAM1`,
+        english = `safely run: !PARAM1`,
     },
 
     {
@@ -82,17 +82,22 @@ return {--[[
 
     {
         lua = `setmetatable(!PARAM1, !PARAM2)`,
-        english = `set metatable !PARAM2 to !PARAM1`,
+        english = `new special table !PARAM2 based on !PARAM1`,
     },
 
     {
         lua = `tonumber(!PARAM1, !PARAM2)`,
-        english = `convert !PARAM1 to number with base !PARAM2`,
+        english = `convert !PARAM1 to a number with base !PARAM2`,
+    },
+
+    {
+        lua = `tonumber(!PARAM1, !PARAM2)`,
+        english = `convert !PARAM1 to a number`,
     },
 
     {
         lua = `tostring(!PARAM1)`,
-        english = `convert !PARAM1 to string`,
+        english = `convert !PARAM1 to a string`,
     },
 
     {
@@ -142,21 +147,21 @@ return {--[[
 
     {
         lua = `debug.debug()`,
-        english = `debug.`,
+        english = `debug`,
     },
 
     {
         lua = `debug.gethook()`,
-        english = `get debug hook.`,
+        english = `get debug hook`,
     },
 
     {
         lua = `debug.getinfo(!PARAM1, !PARAM2)`,
-        english = `get debug info of !PARAM1 with !PARAM2.`,
+        english = `get debug info of !PARAM1 with !PARAM2`,
     },
 
     {
         lua = `debug.getlocal(!PARAM1, !PARAM2)`,
-        english = `get debug local of !PARAM1 with !PARAM2.`,
+        english = `get debug local of !PARAM1 with !PARAM2`,
     },
 }

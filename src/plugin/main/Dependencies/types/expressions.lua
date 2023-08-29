@@ -12,7 +12,7 @@ return {--[[
 
     {
         lua = `!PARAM2 += !PARAM1`,
-        english = `add !PARAM2 to !PARAM1 variable`,
+        english = `add !PARAM2 and !PARAM1 together`,
     },
 
     -- {
@@ -22,7 +22,7 @@ return {--[[
 
     {
         lua = `!PARAM1 -= !PARAM2`,
-        english = `subtract !PARAM2 from !PARAM1 variable`,
+        english = `subtract !PARAM2 and !PARAM1 together`,
     },
 
     -- {
@@ -32,7 +32,7 @@ return {--[[
 
     {
         lua = `!PARAM1 *= !PARAM2`,
-        english = `multiply !PARAM1 by !PARAM2 variable`,
+        english = `multiply !PARAM1 and !PARAM2 together`,
     },
 
     -- {
@@ -42,12 +42,12 @@ return {--[[
 
     {
         lua = `!PARAM1 /= !PARAM2`,
-        english = `divide !PARAM1 by !PARAM2 variable`,
+        english = `divide !PARAM1 from !PARAM2 together`,
     },
 
     {
         lua = `!PARAM1 % !PARAM2`,
-        english = `remainder of !PARAM1 divided by !PARAM2`,
+        english = `remainder of !PARAM1 divided by !PARAM2 together`,
     },
 
     -- {
@@ -67,7 +67,7 @@ return {--[[
 
     {
         lua = `!PARAM1 = !PARAM2`,
-        english = `set variable !PARAM1 to !PARAM2`,
+        english = `set !PARAM1 to !PARAM2`,
     },
 
     {
@@ -112,12 +112,12 @@ return {--[[
 
     {
         lua = "{!PARAM1}",
-        english = `list: !PARAM1. end of list.`,
+        english = `list: !PARAM1. end of list`,
     },
 
     {
         lua = "#!PARAM1",
-        english = `the length of !PARAM1 as a number`,
+        english = `length !PARAM1 as a number`,
     },
 
     -- {
