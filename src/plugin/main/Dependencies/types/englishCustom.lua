@@ -177,5 +177,30 @@ return {
     {
         lua = `table.find(!PARAM1, !PARAM2) ~= nil`,
         english = `!PARAM2 exists inside of !PARAM1`,
-    }
+    },
+
+    {
+        lua = `!PARAM1:Wait()`,
+        english = `wait for !PARAM1 to happen`,
+    },
+
+    {
+        lua = `!PARAM1:WaitForChild("!PARAM2")`,
+        english = `wait for !PARAM2 to be inside of !PARAM1`,
+    },
+
+    {
+        lua = `function !PARAM1.new(!PARAM2)`,
+        english = `when an instance of !PARAM1 is created, remember !PARAM2 parameters and then:`
+    },
+
+    {
+        lua = `!PARAM1.new(!PARAM2)`,
+        english = `create an instance of !PARAM1 with !PARAM2 parameters`,
+    },
+
+    {
+        lua = `!PARAM1.!PARAM2 = !PARAM3`,
+        english = `change !PARAM1's !PARAM2 property to !PARAM3`,
+    },
 }
