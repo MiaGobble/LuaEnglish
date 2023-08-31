@@ -27,3 +27,6 @@ This literally does not work yet lol. Will update this description upon announce
 
 ## Documentation
 [V5 Link](LuaEnglish/documentation)
+
+
+Note: Hi there
