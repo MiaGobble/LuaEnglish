@@ -15,4 +15,4 @@ This is in baby stages. Like a baby, this transpiler is stupid, and has a lot of
 
 |   Download    |    Learn More  |   Documentation                         |   Issues      |
 |---------------|----------------|-----------------------------------------|---------------|
-|   [Releases]()|   [Tutorials]()|   [Documentation](../docs/)|[Issues Page]()|               |
+|   [Releases]()|   [Tutorials]()|   [Documentation](../docs/index.md)|[Issues Page]()|               |
