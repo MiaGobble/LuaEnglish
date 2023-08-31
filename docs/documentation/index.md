@@ -20,4 +20,4 @@ You can find the official Rojo website [here]() and download it from [this page]
 ---
 
 # Documentation
-* [Expressions](../documentation/expressions.md)
+* [Expressions](../expressions.md)
