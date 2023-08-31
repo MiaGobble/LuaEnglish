@@ -26,4 +26,4 @@ This literally does not work yet lol. Will update this description upon announce
 *To be done*
 
 ## Documentation
-[V2 Link](../documentation/index.md)
+[V3 Link](../documentation/index.md)
