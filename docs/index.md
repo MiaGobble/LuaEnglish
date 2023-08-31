@@ -26,4 +26,4 @@ This literally does not work yet lol. Will update this description upon announce
 *To be done*
 
 ## Documentation
-[Here](docs/documentation)
+[V2 Link](../docs/documentation)
