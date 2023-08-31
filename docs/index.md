@@ -13,6 +13,6 @@ This is in baby stages. Like a baby, this transpiler is stupid, and has a lot of
 
 ## Links
 
-|   Download    |    Learn More  |   Documentation                       |   Issues      |
-|---------------|----------------|---------------------------------------|---------------|
-|   [Releases]()|   [Tutorials]()|   [Releases](LuaEnglish/documentation)|[Issues Page]()|
+|   Download    |    Learn More  |   Documentation                         |   Issues      |
+|---------------|----------------|-----------------------------------------|---------------|
+|   [Releases]()|   [Tutorials]()|   [Documentation](../docs/)|[Issues Page]()|               |
