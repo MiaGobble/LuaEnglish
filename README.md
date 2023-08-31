@@ -1,1 +1,1 @@
-tbd
+*Read the documentation [here](https://miagobble.github.io/LuaEnglish/)*
